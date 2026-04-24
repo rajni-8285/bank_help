@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SecureBank | Customer Login</title>
+    <style>
+        
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background: linear-gradient(135deg, #003366 0%, #9dc5e1 100%); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+
+        
+        .login-card { 
+            background: white; 
+            padding: 50px; 
+            border-radius: 15px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+            width: 450px; 
+            text-align: center; 
+            border-top: 5px solid #ffcc00; 
+        }
+
+        .logo-small { height: 70px; margin-bottom: 20px; }
+        
+        h2 { color: #003366; margin-bottom: 5px; font-size: 28px; }
+        p { color: #666; margin-bottom: 30px; font-size: 14px; }
+
+        
+        .input-group { text-align: left; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #003366; font-weight: bold; font-size: 14px; }
+        
+        input { 
+            width: 100%; 
+            padding: 15px; 
+            border: 2px solid #eee; 
+            border-radius: 8px; 
+            box-sizing: border-box; 
+            font-size: 16px;
+            transition: 0.3s;
+            background: #f9f9f9;
+        }
+
+        input:focus {
+            border-color: #003366;
+            outline: none;
+            background: #fff;
+            box-shadow: 0 0 8px rgba(0,51,102,0.1);
+        }
+
+        
+        button { 
+            width: 100%; 
+            padding: 16px; 
+            background: #003366; 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 18px; 
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover { background: #002244; transform: translateY(-2px); }
+
+        .footer-text { margin-top: 25px; font-size: 12px; color: #999; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <img src="{{ url_for('static', filename='secure bank.png') }}" class="logo-small" alt="SecureBank">
+        <h2>Welcome Back</h2>
+        <p>Please enter your credentials to access your secure portal.</p>
+        
+        <form action="/login" method="POST">
+            <div class="input-group">
+                <label>Username / Customer ID</label>
+                <input type="text" name="username" placeholder="Enter ID" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Password / PIN</label>
+                <input type="password" name="password" placeholder="Enter Password" required>
+            </div>
+            
+            <button type="submit">Authorize & Login</button>
+        </form>
+
+        <div class="footer-text">
+            Locked for your security. © 2026 SecureBank Group Inc.
+        </div>
+    </div>
+</body>
+</html>
